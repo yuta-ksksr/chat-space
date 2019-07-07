@@ -2,7 +2,6 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false|
 |name|string|null: false, index: true|
 |email|string|null: false|
 |password|string|null: false|
@@ -17,11 +16,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false|
-|body|text|null: false|
-|image|string|null: true|
-|group_id|integer|null: false|
-|user_id|integer|null: false|
+|body|text|null: true, validates :image, presence: true|
+|image|string|null: true, validates :body, presence: true|
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -45,7 +43,6 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false|
 |member_id|integer|null: false, foreign_key: true|
 |message_id|integer|null: false, foreign_key: true|
 
