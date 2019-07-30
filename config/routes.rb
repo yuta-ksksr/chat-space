@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       g.test_framework false
     end
   end
-  root to: 'messages#index'
+  root 'groups#index'
   resources :users,only: [:edit, :update]
   resources :groups, only: [:new, :create, :edit, :update] do
     resources :messages, only: [:index, :create]
