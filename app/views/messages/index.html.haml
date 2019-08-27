@@ -17,13 +17,13 @@
             メンバー名
       .right-header
         .right-header__button
-          Edit
+          = link_to 'Edit', edit_group_path(@group)
     .messages
       = render @messages
     
     .form
       = form_for [@group, @message] do |f|
-        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message', value: nil
         .form__mask
           = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'icon'
