@@ -65,7 +65,7 @@ $(function(){
         $(document).scrollTop($(document).height());
       })
       .fail(function() {
-        console.log('error');
+        alert('自動更新エラー');
       });
     }
 };
