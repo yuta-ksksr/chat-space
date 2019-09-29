@@ -1,7 +1,6 @@
 $(function(){
   function buildHTML(message) {
-    var content = message.content ? `${ message.content }` : "";
-    var img = message.image.url ? `<img src= ${ message.image }>` : "";
+    var image = (message.image.url) ? `<img class= "lower-message__image" src="${message.image.url}" >` : "";
     var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <p class="upper-message__user-name">
@@ -13,9 +12,9 @@ $(function(){
                   </div>
                   <div class="lower-message">
                     <p class="lower-message__content">
-                      ${content}
-                      ${img}
+                      ${message.content}
                     </p>
+                    ${image}
                   </div>
                 </div>`
   return html;
@@ -62,7 +61,8 @@ $(function(){
           insertHTML = buildHTML(message);
           $('.messages').append(insertHTML);
         })
-        $(document).scrollTop($(document).height());
+        // $(document).scrollTop($(document).height());
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'fast');
       })
       .fail(function() {
         alert('自動更新エラー');

@@ -1,6 +1,7 @@
 .chat {
   width: calc(100% - 300px);
   overflow: auto;
+  height:100% ;
   .header {
     box-sizing: border-box;
     height: 100px;
@@ -39,6 +40,7 @@
     box-sizing: border-box;
     padding: 46px 40px 0;
     height: calc(100% - 100px - 90px);
+  
  
     .message {
       .upper-message {
